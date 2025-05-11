@@ -1,0 +1,18 @@
+.div-grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.div-card{
+    height: 180px;
+    position: relative;
+    margin-top: 0.5rem!important;
+}
+
+.card-img{
+    height: -webkit-fill-available;
+}
+
+.btn-info-popover{
+    z-index: 10000 !important;
+}

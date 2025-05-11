@@ -1,0 +1,51 @@
+:root{
+
+    /* color of web site */
+    --bacground-color:#fff;
+    --button-primary-color: #FFA07A;
+    --button-primary-color1: #FF9900;
+    --primary-color1: #FF9900;
+    --secondary-color: #2E865F;
+    --button-primary-color: #008000;
+    --button-secondary-color: #0A3326;
+    --primary-100:#1F3A5F;
+    --primary-200:#4d648d;
+    --primary-300:#acc2ef;
+    --accent-100:#3D5A80;
+    --accent-200:#cee8ff;
+    --text-100:#FFFFFF;
+    --text-200:#e0e0e0;
+    --bg-100:#0F1C2E;
+    --bg-200:#1f2b3e;
+    --bg-300:#374357;
+    --bg-color: #2a62ab;
+    --text-color: rgba(105,105,112, .9);
+    --headerFontColor: #fff;
+    --bgSlideHeader: #0c356a;
+    --crdStatsBgr1: #2a62ab;
+    --crdStatsBgr2: #b6d1f7;
+    --crdStatsBgr3: #ff7f2a;
+    --crdStatsBgr4: #ffc299;
+    --crdStatsBgr5: #ffc299;
+    --color-text: #0b1623;
+    --bgr-footer: #066648;
+  }
+
+  
+  
+.last-div-footer{
+    background-color: var(--bgr-footer);
+    color: var(--bacground-color);
+}
+
+.last-div-footer img, svg{
+    /* background-color: var(--bgr-footer); */
+    color: var(--bacground-color);
+}
+.bg-footer{
+    background-color: var(--button-secondary-color)!important;
+}
+.footer-sb-div{
+    border-right: 1px dotted var(--bacground-color);
+    /* margin: auto; */
+}
