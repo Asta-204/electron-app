@@ -1,7 +1,8 @@
 // import { useState } from 'react'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
-import Main from './vues/Mainpage1';
+// import Main from './vues/Mainpage1';
+import Layout from './vues/Layout.tsx';
 import { BrowserRouter as Router, Routes, Route } from 'react-router';
 import Auth from './vues/Auth';
 import AuthLogin from './vues/AuthLogin';
@@ -14,15 +15,15 @@ function App() {
   return (
     <>
       <Router>
-          <Routes>
-            <Route path="/" element={<Main />}>
-              <Route path="auth-login" element={<AuthLogin />}>
-                <Route path="login" element={<Login />}></Route>
-                <Route path="auth" element={<Auth />}></Route>
-              </Route>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route path="/" element={<AuthLogin />}>
+              <Route path="login" element={<Login />}></Route>
+              <Route path="auth" element={<Auth />}></Route>
             </Route>
-          </Routes>
-        </Router>
+          </Route>
+        </Routes>
+      </Router>
     </>
   )
 }

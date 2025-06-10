@@ -9,7 +9,7 @@ export default function Main(){
                     SCHOOLO esst destiné à la gestion des écoles et universités.
                 </p>
                 <p>
-                    Cliquez sur le texte <Link to='/auth-login'>inscrivez-vous</Link> pour poursuivre l'aventure!
+                    Cliquez sur le texte <Link to='/'>inscrivez-vous</Link> pour poursuivre l'aventure!
                 </p>
             </>
         </>

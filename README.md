@@ -7,6 +7,9 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
+## Commande de lancement du projet en local
+  ## npm run dev ----> pour lancer le serveur de vite (represente le contenu du projet)
+  ## npm run electron ----> pour lancer le serveur d'electron
 ## Tous les packages ou dépendances installés
 
   ## installer electron dans un projet 
