@@ -2,7 +2,7 @@
 // import Header from './Header/Header.tsx';
 // import Villes from './Body/villes/Villes.tsx'
 // import Footer from './Footer/Footer.tsx';
-import Modal from "./Modal/ModalDateHeure2.tsx"
+import Modal from "../components/Modal/ModalDateHeure2.tsx";
 import { useEffect } from 'react';
 // import 'bootstrap/dist/js/bootstrap.bundle.min';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -14,7 +14,7 @@ declare global {
     bootstrap: any;
   }
 }
-export default function Mainpage() {
+export default function Mainpage1() {
 console.log(window.bootstrap); // doit afficher un objet, pas undefined
 
    useEffect(() => {
