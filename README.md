@@ -17,7 +17,14 @@ Currently, two official plugins are available:
 
   ## build ou lancé le projet electron
     npm install electron-builder --save-dev
+  ## Installation de Material ui
+    npm install @mui/material @emotion/react @emotion/styled
 
+  ## Installation de Roboto font (style du text ou format d'écriture)
+    npm install @fontsource/roboto
+  
+  ## Installation de Toolpad core (utiliser des composant deja creer comme le formulaire de connexion)
+    npm install @toolpad/core
 
 ## Expanding the ESLint configuration
 

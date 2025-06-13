@@ -12,6 +12,11 @@
     "postinstall": "electron-builder install-app-deps"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@fontsource/roboto": "^5.2.6",
+    "@mui/material": "^7.1.1",
+    "@toolpad/core": "^0.16.0",
     "bootstrap": "^5.3.6",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
@@ -35,7 +40,7 @@
   },
   "build": {
     "appId": "com.my-electron-app",
-    "productName": "MyElectronApp",
+    "productName": "SCHOOLO",
     "files": [
       "build/**/*",
       "electron/electron.js"
