@@ -1,10 +1,16 @@
-import { Outlet } from 'react-router-dom'
+import { Outlet, useLocation } from 'react-router'
 import Main from '../vues/Main.tsx'
-export default function Auth() {
+export default function Layout() {
+    var data = useLocation()
+    let disp = data.state.disp
+    disp?console.log(disp):null;
+    
     return (
         <>
             <Main />
-            <Outlet />
+            <main style={{display:'block'}}>
+                <Outlet />
+            </main>
         </>
     )
 }

@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router';
 import Auth from './vues/Auth';
 import AuthLogin from './vues/AuthLogin';
 import Login from './vues/Login';
+import SignIn from './components/SignIn.tsx';
 import './App.css'
 
 function App() {
@@ -16,11 +17,11 @@ function App() {
     <>
       <Router>
         <Routes>
+            <Route path="/" element={<SignIn />}>
+            </Route>
           <Route element={<Layout />}>
-            <Route path="/" element={<AuthLogin />}>
               <Route path="login" element={<Login />}></Route>
               <Route path="auth" element={<Auth />}></Route>
-            </Route>
           </Route>
         </Routes>
       </Router>
