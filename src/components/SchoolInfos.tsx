@@ -25,7 +25,7 @@ const formSchema = z.object({
   }),
 
   file: z.string(),
- 
+
 })
 
 export default function SchoolInfos() {
@@ -92,7 +92,11 @@ export default function SchoolInfos() {
                 </FormItem>
               )}
             />
-            <Button type="submit">Submit</Button>
+            <CardContent className="mt-2 flex flex-row gap-2 justify-center">
+              <Button type="submit">Submit</Button>
+              <Button variant="secondary">Ignorer</Button>
+            </CardContent>
+
           </form>
         </Form>
       </CardContent>
