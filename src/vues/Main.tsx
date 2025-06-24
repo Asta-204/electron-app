@@ -9,7 +9,7 @@ export default function Main(){
                     SCHOOLO esst destiné à la gestion des écoles et universités.
                 </p>
                 <p>
-                    Cliquez sur le texte <Link to={{pathname: "login"}} state={{disp: "true" }}>inscrivez-vous</Link> pour poursuivre l'aventure!
+                    Cliquez sur le texte <Link to={{pathname: "login"}} state={{disp: "true" }}>inscrivez-vous</Link> ou connectez-vous pour poursuivre l'aventure!
                 </p>
                 
             </>

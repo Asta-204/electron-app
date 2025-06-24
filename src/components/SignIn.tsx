@@ -17,17 +17,17 @@ import {
 import { Input } from "@/components/ui/input"
 
 const formSchema = z.object({
-  username: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
+  email: z.string().min(2, {
+    message: "email must be at least 2 characters.",
   }),
 })
 
-export default function ProfileForm() {
+export default function SignIn() {
    // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      username: "",
+      email: "",
     },
   })
  
@@ -43,16 +43,16 @@ export default function ProfileForm() {
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         <FormField
           control={form.control}
-          name="username"
+          name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Username</FormLabel>
+              <FormLabel>Email</FormLabel>
               <FormControl>
-                 <Input typlaceholder="shadcn" {...field} />
+                 <Input type ='email' placeholder="shadcn" {...field} />
               </FormControl>
               <FormDescription>
                 This is your public display name.
-                    </FormDescription>
+                    </FormDescription>              
               <FormMessage />
             </FormItem>
           )}
