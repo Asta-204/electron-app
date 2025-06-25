@@ -1,7 +1,7 @@
 "use client"
 
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
 import { z } from "zod"
 
 import { Button } from "@/components/ui/button"
@@ -15,10 +15,10 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-
+        
 const formSchema = z.object({
-  email: z.string().min(2, {
-    message: "email must be at least 2 characters.",
+  username: z.string().min(2, {
+    message: "Username must be at least 2 characters.",
   }),
 })
 
@@ -27,7 +27,7 @@ export default function SignIn() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      email: "",
+      username: "",
     },
   })
  
@@ -48,11 +48,44 @@ export default function SignIn() {
             <FormItem>
               <FormLabel>Email</FormLabel>
               <FormControl>
-                 <Input type ='email' placeholder="shadcn" {...field} />
+                 <Input typlaceholder="shadcn" {...field} />
               </FormControl>
               <FormDescription>
                 This is your public display name.
                     </FormDescription>              
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="password"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Password</FormLabel>
+              <FormControl>
+                 <Input type="password" placeholder="" {...field} />
+              </FormControl>
+              <FormDescription>
+                Entrer un mot de passe sûr.
+                    </FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        /> 
+        
+        <FormField
+          control={form.control}
+          name="confirmPassword"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>confirm Password</FormLabel>
+              <FormControl>
+                 <Input type="password" placeholder="******" {...field} />
+              </FormControl>
+              <FormDescription>
+                Confirmer le mot de passe.
+                    </FormDescription>
               <FormMessage />
             </FormItem>
           )}

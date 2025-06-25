@@ -17,8 +17,15 @@ Currently, two official plugins are available:
 
   ## build ou lancé le projet electron
     npm install electron-builder --save-dev
-  ## Installation d'input avec shadcn ui
+
+  ## Installation de React Hook Form avec shadcn
+    npx shadcn@latest add form
+  
+  ## Installation d'input avec shadcn
     npx shadcn@latest add input
+
+
+
 
 ## Expanding the ESLint configuration
 
