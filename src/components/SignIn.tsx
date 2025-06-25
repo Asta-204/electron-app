@@ -17,17 +17,26 @@ import {
 import { Input } from "@/components/ui/input"
         
 const formSchema = z.object({
-  username: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
-  }),
-})
+  email: z.string()
+    .min(6, { message: "minimum 6 caractères." })
+    .email("email invalide."),
+    
+  password: z.string()
+    .min(8, { message: "minimum 8 caractères." }).trim(),
+    
+  confirmPassword: z.string()
+    .min(8, { message: "minimum 8 caractères." }).trim(),  
 
-export default function SignIn() {
+}).refine((data) => data.password === data.confirmPassword, {     message: "Les mots de passe ne correspondent pas",     path: ["confirmPassword"],   });
+
+export default function ProfileForm() {
    // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      username: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
     },
   })
  
@@ -48,11 +57,11 @@ export default function SignIn() {
             <FormItem>
               <FormLabel>Email</FormLabel>
               <FormControl>
-                 <Input typlaceholder="shadcn" {...field} />
+                 <Input placeholder="kekeli@gmail.com" {...field} />
               </FormControl>
               <FormDescription>
                 This is your public display name.
-                    </FormDescription>              
+                    </FormDescription>
               <FormMessage />
             </FormItem>
           )}
