@@ -9,6 +9,7 @@ import AuthLogin from './vues/AuthLogin';
 import Login from './components/LogIn.tsx';
 import SignIn from './components/SignIn.tsx';
 import SchoolInfos from './components/SchoolInfos.tsx';
+import DashBoard from "../src/app/dashboard/page.tsx"
 import './App.css'
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
             </Route>
               <Route path="login" element={<Login />}></Route>
               <Route path="infos" element={<SchoolInfos />}></Route>
+              <Route path="dashboard" element={<DashBoard />}></Route>
           <Route element={<Layout />}>
               <Route path="auth" element={<Auth />}></Route>
           </Route>
