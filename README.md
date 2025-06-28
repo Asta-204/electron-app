@@ -23,6 +23,16 @@ Currently, two official plugins are available:
   
   ## Installation d'input avec shadcn
     npx shadcn@latest add input
+## Processus de mise à jour au fur et à mésure
+  # Télécharger et installer nvm :
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+# au lieu de redémarrer le shell
+\. "$HOME/.nvm/nvm.sh"
+# Télécharger et installer Node.js :
+nvm install 22
+# Vérifier la version de Node.js :
+node -v # Doit afficher "v22.16.0".
+nvm current # Doit afficher "v22.16.0".
 
 
 

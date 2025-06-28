@@ -9,7 +9,6 @@ import { Button } from "@/components/ui/button"
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -20,13 +19,16 @@ import { useState } from "react"
 import { Card, CardContent } from "./ui/card"
 
 const formSchema = z.object({
-  email: z.string().min(1, {
-    message: "le champs est vide",
-  }).email("email incorrect"),
 
-  password: z.string().min(8, {
-    message: "le mot de passe est court",
-  }),
+  email: z.string()
+    .min(6, { message: "minimum 6 caractères." })
+    .email("email invalide.")
+    .max(40, { message: "vous avez atteint la longueur maximale" }),
+
+  password: z.string()
+    .min(8, { message: "minimum 8 caractères." }).trim()
+    .max(30, { message: "vous avez atteint la longueur maximale" }),
+
 })
 
 export default function LogIn() {
@@ -62,10 +64,10 @@ export default function LogIn() {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Email</FormLabel>
-                  <div className="rounded-md border focus-within:ring-1 focus-within:ring-ring px-2">
+                  <div className="relative flex items-center rounded-md border focus-within:ring-1 focus-within:ring-ring px-2">
                     <FormControl>
                       <Input
-                        type='email' placeholder="kekeli@gmail.com" {...field}
+                        type='email' placeholder="kekeli@example.com" {...field}
                         className="border-0 focus-visible:ring-0 shadow-none "
                       />
                     </FormControl>
@@ -103,7 +105,7 @@ export default function LogIn() {
             <Button type="submit">Submit</Button>
           </form>
         </Form>
-            <Button variant="link">Mot de passe oublié</Button>
+        <Button variant="link">Mot de passe oublié</Button>
       </CardContent>
     </Card>
   )

@@ -2,29 +2,37 @@
 
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
-import { z } from "zod"
-import { Eye, EyeOff } from "lucide-react"
-
+import * as z from "zod/v4"; 
 import { Button } from "@/components/ui/button"
 import {
   Form,
   FormControl,
-  FormDescription,
+  // FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import { useState } from "react"
 import { Card, CardContent } from "./ui/card"
+
+const MAX_FILE_SIZE = 5000000;
+const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/png",  "image/webp"];
 
 const formSchema = z.object({
   schoolname: z.string().min(1, {
     message: "le champs est vide",
-  }),
+  }).max(40, {message: "vous avez atteint la longueur maximale"}),
 
-  file: z.string(),
+  image: z.instanceof(FileList)
+    .refine(
+      (files) => files[0]?.size <= MAX_FILE_SIZE,
+      { message: "La taille maximale recommandée est de 5 Mo." }
+    )
+    .refine(
+      (files) => ACCEPTED_IMAGE_TYPES.includes(files[0]?.type),
+      { message: "Seuls les formats .jpg, .jpeg, .png et .webp sont acceptés." }
+    ),
 
 })
 
@@ -33,8 +41,7 @@ export default function SchoolInfos() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      schoolname: "",
-      file: "",
+      schoolname:"",
     },
   })
 
@@ -43,12 +50,9 @@ export default function SchoolInfos() {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     console.log(values)
+    console.log(values.image)
   }
 
-  const [showPassword, setShowPassword] = useState(false);
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
-  };
 
   return (
     <Card className="w-[350px]">
@@ -69,6 +73,9 @@ export default function SchoolInfos() {
                       />
                     </FormControl>
                   </div>
+                  {/* <FormDescription>
+                    This is your public display name.
+                  </FormDescription> */}
                   <FormMessage />
                 </FormItem>
               )}
@@ -76,14 +83,15 @@ export default function SchoolInfos() {
 
             <FormField
               control={form.control}
-              name="file"
-              render={({ field }) => (
+              name="image"
+              render={({ field: {onChange} }) => (
                 <FormItem>
-                  <FormLabel>Ajouter image</FormLabel>
+                  <FormLabel>Ajouter une image</FormLabel>
                   <div className="relative flex items-center rounded-md border focus-within:ring-1 focus-within:ring-ring px-2">
                     <FormControl>
-                      <Input
-                        type="file" placeholder="" {...field}
+                      <Input 
+                      onChange={(e)=>onChange(e.target.files)}
+                        type="file" placeholder=""
                         className="border-0 focus-visible:ring-0 shadow-none"
                       />
                     </FormControl>
@@ -92,10 +100,10 @@ export default function SchoolInfos() {
                 </FormItem>
               )}
             />
-            <CardContent className="mt-2 flex flex-row gap-2 justify-center">
+            <div className="mt-2 flex flex-row gap-2 justify-center">
               <Button type="submit">Submit</Button>
               <Button variant="secondary">Ignorer</Button>
-            </CardContent>
+            </div>
 
           </form>
         </Form>
