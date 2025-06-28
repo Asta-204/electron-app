@@ -10,24 +10,28 @@ import { Button } from "@/components/ui/button"
 import {
   Form,
   FormControl,
-  FormDescription,
+  // FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
+import { Card, CardContent } from "./ui/card";
 
 const formSchema = z.object({
   email: z.string()
     .min(6, { message: "minimum 6 caractères." })
-    .email("email invalide."),
+    .email("email invalide.")
+    .max(40, {message: "vous avez atteint la longueur maximale"}),
 
   password: z.string()
-    .min(8, { message: "minimum 8 caractères." }).trim(),
+    .min(8, { message: "minimum 8 caractères." }).trim()
+    .max(30, {message: "vous avez atteint la longueur maximale"}),
 
   confirmPassword: z.string()
-    .min(8, { message: "minimum 8 caractères." }).trim(),
+    .min(8, { message: "minimum 8 caractères." }).trim()
+    .max(30, {message: "vous avez atteint la longueur maximale"}),
 
 }).refine((data) => data.password === data.confirmPassword, { message: "Les mots de passe ne correspondent pas", path: ["confirmPassword"], });
 
@@ -63,6 +67,8 @@ export default function ProfileForm() {
   };
 
   return (
+    <Card className="w-[350px]">
+      <CardContent>
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         <FormField
@@ -74,9 +80,9 @@ export default function ProfileForm() {
               <FormControl>
                 <Input placeholder="kekeli@gmail.com" {...field} />
               </FormControl>
-              <FormDescription>
+              {/* <FormDescription>
                 This is your public display name.
-              </FormDescription>
+              </FormDescription> */}
               <FormMessage />
             </FormItem>
           )}
@@ -102,9 +108,9 @@ export default function ProfileForm() {
                   )}
                 </div>
               </div>
-              <FormDescription>
+              {/* <FormDescription>
                 Entrer un mot de passe sûr.
-              </FormDescription>
+              </FormDescription> */}
               <FormMessage />
             </FormItem>
           )}
@@ -131,9 +137,9 @@ export default function ProfileForm() {
                   )}
                 </div>
               </div>
-              <FormDescription>
+              {/* <FormDescription>
                 Confirmer le mot de passe.
-              </FormDescription>
+              </FormDescription> */}
               <FormMessage />
             </FormItem>
           )}
@@ -143,5 +149,7 @@ export default function ProfileForm() {
         </div>
       </form>
     </Form>
+    </CardContent>
+    </Card>
   )
 }
