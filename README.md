@@ -7,6 +7,17 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
+## Mettre un projt sur github pour la premiere fois
+git init
+
+git add .
+
+git commit -m "Add all my files"
+
+git remote add origin https://github.com/yourusername/your-repo-name.git
+
+git push origin master
+
 ## Commande de lancement du projet en local
   ## npm run dev ----> pour lancer le serveur de vite (represente le contenu du projet)
   ## npm run electron ----> pour lancer le serveur d'electron
